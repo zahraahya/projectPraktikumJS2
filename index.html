@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Product Explorer - Bagian 19</title>
+    <title>Product Explorer - Bagian 21</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 30px;
+            margin: 0;
+            padding: 20px;
             background-color: #f5f5f5;
         }
 
@@ -20,40 +22,59 @@
         .controls {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
         input,
-        select {
+        select,
+        button {
             padding: 10px;
-            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #status {
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         #product-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 15px;
         }
 
         .product-card {
             background-color: white;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
         }
 
         .product-card h3 {
-            margin-top: 0;
+            margin-bottom: 8px;
         }
 
         .product-card p {
-            margin: 6px 0;
+            margin: 5px 0;
         }
 
-        #status {
-            margin-bottom: 15px;
-            font-weight: bold;
+        #statistics {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -62,48 +83,42 @@
 
     <h1>Product Explorer</h1>
 
-    <!-- ==========================================
-         CONTROL UNTUK INTERAKSI USER
-         ========================================== -->
-
     <div class="controls">
 
-        <!-- Search -->
         <input
             type="text"
             id="search-input"
             placeholder="Cari produk..."
         >
 
-        <!-- Category -->
         <select id="category-select">
             <option value="all">Semua Kategori</option>
-            <option value="laptops">Laptops</option>
-            <option value="phones">Phones</option>
-            <option value="audio">Audio</option>
-            <option value="tablets">Tablets</option>
-            <option value="accessories">Accessories</option>
         </select>
 
-        <!-- Sort -->
         <select id="sort-select">
             <option value="default">Urutan Default</option>
             <option value="price-asc">Harga Terendah</option>
             <option value="price-desc">Harga Tertinggi</option>
-            <option value="rating-desc">Rating Tertinggi</option>
-            <option value="title-asc">Nama A-Z</option>
-        </select>
+            <option value="rating">Rating Tertinggi</option>
+            <option value="title">Nama Produk</option>
+        >
 
     </div>
 
-    <!-- Status data -->
-    <div id="status"></div>
+    <div id="status">
+        Menunggu data...
+    </div>
 
-    <!-- Tempat produk dirender -->
+    <div id="statistics"></div>
+
     <div id="product-list"></div>
 
-
-    <script src="19-bagian-19.js"></script>
+    <!-- ES Module -->
+    <script
+        type="module"
+        src="js/main.js">
+    </script>
 
 </body>
+
 </html>
